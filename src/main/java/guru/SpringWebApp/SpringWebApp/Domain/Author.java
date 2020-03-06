@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
@@ -16,6 +17,8 @@ public class Author
 
     private String fristName;
     private String lastName;
+
+    @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
 
