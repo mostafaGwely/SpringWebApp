@@ -1,9 +1,20 @@
 package guru.SpringWebApp.SpringWebApp.Domain;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Set;
 
+@Entity
 public class Book
 {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String title;
     private String isbn;
     private Set<Author> authors;
@@ -41,4 +52,13 @@ public class Book
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
